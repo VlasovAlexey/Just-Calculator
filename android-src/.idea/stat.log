@@ -44,3 +44,6 @@
 {"ts":1773860764826,"action":"IDE_DEACTIVATED"}
 {"ts":1773860764926,"action":"IDE_ACTIVATED"}
 {"ts":1773860830033,"action":"PROJECT_CLOSED","tags":{"PROJECT_NAME":"JustCalculator"}}
+{"ts":1773945060781,"action":"FILE_OPENED","file":"/app/src/main/AndroidManifest.xml","tags":{"FILE_LINE_OF_CODE":"33"}}
+{"ts":1773945061033,"action":"PROJECT_OPENED","tags":{"PROJECT_NAME":"JustCalculator"}}
+{"ts":1773945070419,"action":"IDE_DEACTIVATED"}

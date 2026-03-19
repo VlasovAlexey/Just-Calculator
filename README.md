@@ -6,14 +6,9 @@ Wraps into an Android app via WebView for native-like mobile experience.
 
 ## Screenshots
 
-### Dark Theme
 | Portrait | Landscape |
 |----------|-----------|
 | ![Portrait Dark](screenshots/portrait.png) | ![Landscape Dark](screenshots/landscape.png) |
-
-### Light Theme
-| Portrait | Landscape |
-|----------|-----------|
 | ![Portrait Light](screenshots/portrait-light.png) | ![Landscape Light](screenshots/landscape-light.png) |
 
 ## Features
@@ -39,34 +34,6 @@ Wraps into an Android app via WebView for native-like mobile experience.
 - **Vanilla JavaScript** — no libraries, no build tools
 - **Android (WebView)** — Kotlin wrapper for native Android app (Android 11+), external links open in default browser
 
-## Project Structure
-
-```
-JustCalculator/
-├── html-src/               # Web source files
-│   ├── index.html
-│   ├── favicon.ico
-│   └── src/
-│       ├── css/
-│       │   └── styles.css
-│       └── js/
-│           ├── script.js   # Calculator logic, theme toggle & UI
-│           └── math.js     # Math helper functions
-├── android-src/            # Android Studio project
-│   ├── app/
-│   │   └── src/main/
-│   │       ├── assets/     # Web files (copied from html-src)
-│   │       ├── java/com/avlasov/justcalculator/
-│   │       │   └── MainActivity.kt
-│   │       └── res/
-│   └── build.gradle.kts
-└── screenshots/
-    ├── portrait.png
-    ├── portrait-light.png
-    ├── landscape.png
-    └── landscape-light.png
-```
-
 ## Getting Started
 
 ### Web (Browser)
@@ -91,14 +58,6 @@ Open `http://localhost:8080` in your browser.
 - **Web**: Any modern browser (Chrome, Firefox, Safari, Edge)
 - **Android**: Android 11 (API 30) or higher
 
-## Author
-
-**Alexey Vlasov** — [GitHub](https://github.com/VlasovAlexey)
-
 ## License
 
-Copyright (c) 2026 Alexey Vlasov. All rights reserved.
-
-This software and associated documentation files (the "Software") are the exclusive property of Alexey Vlasov. No part of this Software may be reproduced, distributed, modified, or transmitted in any form or by any means without the prior written permission of the author.
-
-**License type: Proprietary / All Rights Reserved**
+This project is licensed under the **GNU General Public License v3.0** — see the [LICENSE](LICENSE) file for details.

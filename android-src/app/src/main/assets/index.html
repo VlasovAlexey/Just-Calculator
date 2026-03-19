@@ -3,9 +3,36 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Simple elegant calculator inspired by Google Android Calculator. Dark & light themes, scientific functions, PWA support.">
+    <meta name="theme-color" content="#000000" id="meta-theme-color">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Calculator">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="icons/icon-144x144.png">
+
+    <!-- Open Graph / Social Preview (Telegram, Facebook, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JustCalculator">
+    <meta property="og:description" content="Simple elegant calculator with dark & light themes, scientific functions, and PWA support.">
+    <meta property="og:image" content="icons/og-image.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JustCalculator">
+    <meta name="twitter:description" content="Simple elegant calculator with dark & light themes and scientific functions.">
+    <meta name="twitter:image" content="icons/og-image.png">
+
     <link rel="stylesheet" href="./src/css/styles.css">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16x16.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
     <title>Calculator</title>
 </head>
 
@@ -83,6 +110,11 @@
     </div>
     <script src="./src/js/script.js"></script>
     <script src="./src/js/math.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js").catch(function() {});
+      }
+    </script>
 
 </body>
 

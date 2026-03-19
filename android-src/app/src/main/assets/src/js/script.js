@@ -32,6 +32,11 @@ function toggleTheme() {
   if (display.style.color !== "transparent") {
     display.style.color = currentColor;
   }
+  // Update meta theme-color for PWA / mobile browsers
+  var metaTheme = document.getElementById("meta-theme-color");
+  if (metaTheme) {
+    metaTheme.setAttribute("content", isDarkTheme ? "#000000" : "#f5f5f5");
+  }
   // Notify Android app about theme change
   if (typeof Android !== "undefined" && Android.onThemeChanged) {
     Android.onThemeChanged(isDarkTheme);
