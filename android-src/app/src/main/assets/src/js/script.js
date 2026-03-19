@@ -3,6 +3,24 @@ let Input = "",
   preview = document.getElementById("preview"),
   isDarkTheme = true;
 
+// Restore saved theme
+(function() {
+  var saved = localStorage.getItem("theme");
+  if (saved === "light") {
+    isDarkTheme = false;
+    document.body.classList.add("light-theme");
+    var sunIcon = document.getElementById("sun-icon");
+    var moonIcon = document.getElementById("moon-icon");
+    if (sunIcon) sunIcon.style.display = "none";
+    if (moonIcon) moonIcon.style.display = "";
+    var metaTheme = document.getElementById("meta-theme-color");
+    if (metaTheme) metaTheme.setAttribute("content", "#f5f5f5");
+    if (typeof Android !== "undefined" && Android.onThemeChanged) {
+      Android.onThemeChanged(false);
+    }
+  }
+})();
+
 fitDisplay();
 
 window.addEventListener("resize", function() {
@@ -16,6 +34,7 @@ window.addEventListener("resize", function() {
 
 function toggleTheme() {
   isDarkTheme = !isDarkTheme;
+  localStorage.setItem("theme", isDarkTheme ? "dark" : "light");
   var sunIcon = document.getElementById("sun-icon");
   var moonIcon = document.getElementById("moon-icon");
   if (isDarkTheme) {

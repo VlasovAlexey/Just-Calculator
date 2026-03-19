@@ -33,6 +33,8 @@ Wraps into an Android app via WebView for native-like mobile experience.
 - **CSS3** — Flexbox & Grid layout, `min()` for responsive font sizes, `100dvh` for mobile Safari, media queries for all breakpoints, class-based theming with CSS transitions
 - **Vanilla JavaScript** — no libraries, no build tools
 - **Android (WebView)** — Kotlin wrapper for native Android app (Android 11+), external links open in default browser
+- **iOS (WKWebView)** — Swift wrapper for native iOS app (iOS 15+), external links open in Safari
+- **PWA** — installable Progressive Web App with Cache First service worker, works offline on both Android and iOS
 
 ## Getting Started
 
@@ -47,16 +49,44 @@ npx http-server -c-1
 
 Open `http://localhost:8080` in your browser.
 
-### Android
+### PWA — Install on Android
+
+1. Open the calculator URL in **Google Chrome**
+2. Tap the **three-dot menu** (⋮) in the top right
+3. Tap **"Install app"** or **"Add to Home screen"**
+4. Confirm — the calculator icon will appear on your home screen
+5. The app works **offline** thanks to the Cache First service worker
+
+### PWA — Install on iOS
+
+1. Open the calculator URL in **Safari** (PWA install only works in Safari on iOS)
+2. Tap the **Share button** (↑) at the bottom of the screen
+3. Scroll down and tap **"Add to Home Screen"**
+4. Edit the name if needed and tap **"Add"**
+5. The calculator icon will appear on your home screen and run in full-screen mode without Safari UI
+
+### Android (Native)
 
 1. Open the `android-src` folder in **Android Studio Otter** (or newer)
 2. Sync Gradle
 3. Run on a device or emulator with **Android 11+**
 
+### iOS (Native)
+
+1. Open `ios-src/JustCalculator.xcodeproj` in **Xcode 15** (or newer)
+2. Select your development team in **Signing & Capabilities**
+3. Select a target device or simulator (iPhone / iPad)
+4. Press **Cmd + R** to build and run
+5. Minimum deployment target: **iOS 15.0**
+
+> **Note:** You need a Mac with Xcode installed to build the iOS project. For running on a physical device, an Apple Developer account is required.
+
 ## Requirements
 
 - **Web**: Any modern browser (Chrome, Firefox, Safari, Edge)
+- **PWA**: Chrome (Android), Safari (iOS), Edge, or any Chromium-based browser
 - **Android**: Android 11 (API 30) or higher
+- **iOS**: iOS 15.0 or higher, Xcode 15+
 
 ## License
 

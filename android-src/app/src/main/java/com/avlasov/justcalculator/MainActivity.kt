@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_JustCalculator)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

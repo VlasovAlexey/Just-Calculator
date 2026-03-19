@@ -60,6 +60,20 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         ])
 
         loadLocalHTML()
+
+        // Check saved theme after page loads
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.webView.evaluateJavaScript("localStorage.getItem('theme')") { result, _ in
+                if let theme = result as? String, theme == "light" {
+                    self.isDarkTheme = false
+                    let bgColor = UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1)
+                    self.view.backgroundColor = bgColor
+                    self.webView.backgroundColor = bgColor
+                    self.webView.scrollView.backgroundColor = bgColor
+                    self.setNeedsStatusBarAppearanceUpdate()
+                }
+            }
+        }
     }
 
     private func loadLocalHTML() {
