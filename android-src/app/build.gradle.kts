@@ -10,8 +10,8 @@ android {
     defaultConfig {
         applicationId = "com.avlasov.justcalculator"
         minSdk = 30
-        targetSdk = 34
-        versionCode = 1
+        targetSdk = 35
+        versionCode = 2
         versionName = "1.0"
     }
 

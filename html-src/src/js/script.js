@@ -23,6 +23,17 @@ let Input = "",
 
 fitDisplay();
 
+// Haptic feedback on all button clicks
+document.addEventListener("click", function(e) {
+  if (e.target.closest("button") || e.target.closest(".theme-toggle") || e.target.closest(".github-link")) {
+    if (typeof Android !== "undefined" && Android.haptic) {
+      Android.haptic();
+    } else if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.haptic) {
+      window.webkit.messageHandlers.haptic.postMessage("");
+    }
+  }
+});
+
 window.addEventListener("resize", function() {
   fitDisplay();
   fitPreview();

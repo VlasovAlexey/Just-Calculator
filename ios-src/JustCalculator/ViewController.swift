@@ -20,6 +20,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         // Add message handler for theme changes from JS
         let contentController = WKUserContentController()
         contentController.add(self, name: "themeChanged")
+        contentController.add(self, name: "haptic")
 
         // Inject JS bridge: override Android.onThemeChanged to send message to iOS
         let bridgeScript = WKUserScript(
@@ -27,6 +28,9 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
             window.Android = {
                 onThemeChanged: function(isDark) {
                     window.webkit.messageHandlers.themeChanged.postMessage(isDark);
+                },
+                haptic: function() {
+                    window.webkit.messageHandlers.haptic.postMessage("");
                 }
             };
             """,
@@ -110,9 +114,14 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         decisionHandler(.allow)
     }
 
-    // MARK: - WKScriptMessageHandler — theme change from JS
+    // MARK: - WKScriptMessageHandler
     func userContentController(_ userContentController: WKUserContentController,
                                didReceive message: WKScriptMessage) {
+        if message.name == "haptic" {
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
+            return
+        }
         if message.name == "themeChanged", let isDark = message.body as? Bool {
             isDarkTheme = isDark
             let bgColor: UIColor = isDark ? .black : UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1)
