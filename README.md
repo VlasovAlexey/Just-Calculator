@@ -14,6 +14,7 @@ Built with pure HTML, CSS, and JavaScript — no frameworks, no dependencies. Wr
 
 ## Features
 
+- Time-tested calculations using the math.js library. For more details, visit https://github.com/josdejong/mathjs
 - **Responsive design** — adapts seamlessly to any screen size, from small phones to large desktop windows
 - **Portrait & landscape modes** — landscape reveals an extended scientific calculator panel with trigonometric, logarithmic, and power functions
 - **Live preview** — shows the intermediate result in real time as you type, just like Google Calculator
