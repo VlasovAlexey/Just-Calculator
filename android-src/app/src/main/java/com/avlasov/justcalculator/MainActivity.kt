@@ -12,18 +12,39 @@ import android.webkit.JavascriptInterface
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var webView: WebView
+    private lateinit var container: FrameLayout
+    private lateinit var insetsController: WindowInsetsControllerCompat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_JustCalculator)
         super.onCreate(savedInstanceState)
+
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        insetsController = WindowInsetsControllerCompat(window, window.decorView)
+
         setContentView(R.layout.activity_main)
 
+        container = findViewById(R.id.container)
         webView = findViewById(R.id.webView)
+
+        ViewCompat.setOnApplyWindowInsetsListener(container) { view, windowInsets ->
+            val insets = windowInsets.getInsets(
+                WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
+            )
+            view.setPadding(insets.left, insets.top, insets.right, insets.bottom)
+            WindowInsetsCompat.CONSUMED
+        }
+
         webView.apply {
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
@@ -68,24 +89,17 @@ class MainActivity : AppCompatActivity() {
         @JavascriptInterface
         fun onThemeChanged(isDark: Boolean) {
             runOnUiThread {
-                val window = this@MainActivity.window
                 if (isDark) {
-                    window.statusBarColor = Color.BLACK
-                    window.navigationBarColor = Color.BLACK
-                    window.decorView.systemUiVisibility =
-                        window.decorView.systemUiVisibility and
-                            android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv() and
-                            android.view.View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.inv()
+                    insetsController.isAppearanceLightStatusBars = false
+                    insetsController.isAppearanceLightNavigationBars = false
                     webView.setBackgroundColor(Color.BLACK)
+                    container.setBackgroundColor(Color.BLACK)
                 } else {
                     val lightColor = Color.parseColor("#f5f5f5")
-                    window.statusBarColor = lightColor
-                    window.navigationBarColor = lightColor
-                    window.decorView.systemUiVisibility =
-                        window.decorView.systemUiVisibility or
-                            android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or
-                            android.view.View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+                    insetsController.isAppearanceLightStatusBars = true
+                    insetsController.isAppearanceLightNavigationBars = true
                     webView.setBackgroundColor(lightColor)
+                    container.setBackgroundColor(lightColor)
                 }
             }
         }
@@ -93,7 +107,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        // Force WebView to recalculate layout after orientation change
         webView.post {
             webView.requestLayout()
             webView.evaluateJavascript(
