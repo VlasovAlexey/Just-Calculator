@@ -2,6 +2,11 @@
 
 **[Try this calculator online](https://vlasovalexey.github.io/Just-Calculator/html-src/)**
 
+**[Calculator App Play Store](https://play.google.com/store/apps/details?id=com.avlasov.justcalculator)**
+
+**[Calculator App RuStore](https://play.google.com/store/apps/details?id=com.avlasov.justcalculator)**
+
+
 A simple, elegant calculator. A calculator that does not collect your personal data, analytics, or any data whatsoever. It's just a calculator. Simply yours entirely. That's why it was made for mobile platforms and can be installed as a native app or as a PWA app as well.
 Built with pure HTML, CSS, and JavaScript — no frameworks, no dependencies. Wraps into native Android and iOS apps via WebView.
 
