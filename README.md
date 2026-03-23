@@ -2,7 +2,7 @@
 
 **[Try this calculator online](https://vlasovalexey.github.io/Just-Calculator/html-src/)**
 
-**[Calculator App Play Store](https://play.google.com/store/apps/details?id=com.avlasov.justcalculator)**
+**[Calculator App Google Play](https://play.google.com/store/apps/details?id=com.avlasov.justcalculator)**
 
 **[Calculator App RuStore](https://play.google.com/store/apps/details?id=com.avlasov.justcalculator)**
 
