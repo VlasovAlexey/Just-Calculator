@@ -4,7 +4,7 @@
 
 **[Calculator App Google Play](https://play.google.com/store/apps/details?id=com.avlasov.justcalculator)**
 
-**[Calculator App RuStore](https://play.google.com/store/apps/details?id=com.avlasov.justcalculator)**
+**[Calculator App RuStore](https://www.rustore.ru/catalog/app/com.avlasov.justcalculator)**
 
 
 A simple, elegant calculator. A calculator that does not collect your personal data, analytics, or any data whatsoever. It's just a calculator. Simply yours entirely. That's why it was made for mobile platforms and can be installed as a native app or as a PWA app as well.
